@@ -1,0 +1,56 @@
+/* 全画面共通のbody設定 */
+body {
+    background-color: #f8f9fa;
+}
+
+/* 一覧画面用の余白 */
+.list-page {
+    padding-top: 30px;
+}
+
+/* 登録・編集画面用の余白 */
+.form-page {
+    padding-top: 50px;
+}
+
+/* --- 以下、それぞれの画面のスタイルをそのまま追記 --- */
+
+/* 一覧画面（1画面目）のスタイル */
+.card {
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.done-item {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.todo-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+/* 登録・編集画面（2画面目）のスタイル */
+.form-container {
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 濃い緑色の枠線ボタン（塗りつぶしなし） */
+.btn-outline-dark-green {
+    color: #1b5e20;
+    border-color: #1b5e20;
+    background-color: transparent;
+}
+.btn-outline-dark-green:hover {
+    color: #144718;
+    border-color: #144718;
+    background-color: rgba(27, 94, 32, 0.08); /* わずかな背景変化のみ */
+}

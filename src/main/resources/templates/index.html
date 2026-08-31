@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo一覧 - タスク管理アプリ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="list-page">
+<div class="container" style="max-width: 1500px;">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h2 text-primary">📋 タスク一覧</h1>
+        <a th:href="@{/todo/add}" class="btn btn-primary">+ 新規タスク追加</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header bg-white text-dark fw-bold">📌 未完了のタスク</div>
+        <div class="card-body p-0">
+            <table class="table table-hover mb-0 align-middle todo-table">
+                <thead class="table-light">
+                <tr>
+                    <th style="width: 6%;">ID</th>
+                    <th style="width: 22%;">タスク名</th>
+                    <th style="width: 28%;">詳細説明</th>
+                    <th style="width: 12%;" class="text-center">期日</th>
+                    <th style="width: 12%;" class="text-center">ステータス</th>
+                    <th style="width: 20%;" class="text-center">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- サンプル1: 通常タスク -->
+                <tr>
+                    <td>1</td>
+                    <td class="text-ellipsis">
+                        <a th:href="@{/todo/edit/{id}(id=1)}" class="fw-bold text-decoration-none">タスク名</a>
+                    </td>
+                    <td class="text-ellipsis">
+                        詳細説明文が入ります。
+                    </td>
+                    <!-- 期日表示 (通常) -->
+                    <td class="text-center">2026/09/15</td>
+                    <td class="text-center">
+                        <span class="badge bg-secondary">未着手</span>
+                    </td>
+                    <td class="text-center">
+                        <!-- 履歴画面への遷移ボタン -->
+                        <a th:href="@{/todo/history/{id}(id=1)}" class="btn btn-outline-dark-green btn-sm">履歴</a>
+                        <form action="#" method="POST" style="display:inline;"
+                              onsubmit="return confirm('本当にこのタスクを削除しますか？');">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">削除</button>
+                        </form>
+                    </td>
+                </tr>
+                <!-- サンプル2: 期限切れ（赤字ハイライト）＆ 保留タスク -->
+                <tr>
+                    <td>2</td>
+                    <td class="text-ellipsis">
+                        <a th:href="@{/todo/edit/{id}(id=2)}" class="fw-bold text-decoration-none">タスク名</a>
+                    </td>
+                    <td class="text-ellipsis">
+                        詳細説明文が入ります。長い文字は三点リーダーにおきかわります
+                    </td>
+                    <!-- 期日表示 (期限切れ：赤字ハイライト例) -->
+                    <td class="text-center text-danger fw-bold">2026/08/20</td>
+                    <td class="text-center">
+                        <span class="badge bg-warning text-dark">保留</span>
+                    </td>
+                    <td class="text-center">
+                        <!-- 履歴画面への遷移ボタン -->
+                        <a th:href="@{/todo/history/{id}(id=2)}" class="btn btn-outline-dark-green btn-sm">履歴</a>
+                        <form action="#" method="POST" style="display:inline;"
+                              onsubmit="return confirm('本当にこのタスクを削除しますか？');">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">削除</button>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="text-center text-muted py-4">現在、未完了のタスクはありません。</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header bg-light text-secondary fw-bold">✅ 完了済みのタスク</div>
+        <div class="card-body p-0">
+            <table class="table mb-0 align-middle">
+                <tbody>
+                <tr >
+                    <td style="width: 8%;"  class="text-secondary">3</td>
+                    <td style="width: 30%;"  class="done-item">完了したタスク名</td>
+                    <td style="width: 37%;"  class="done-item text-secondary">完了した詳細説明。</td>
+                    <td style="width: 25%;" class="text-center">
+                        <form action="" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-secondary btn-sm">戻す</button>
+                        </form>
+                        <a th:href="@{/todo/history/{id}(id=1)}" class="btn btn-outline-dark-green btn-sm">履歴</a>
+                        <form action="" method="POST" style="display:inline;"
+                              onsubmit="return confirm('本当にこのタスクを削除しますか？');">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">削除</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
