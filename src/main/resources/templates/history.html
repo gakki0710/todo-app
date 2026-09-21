@@ -26,25 +26,25 @@
             <table class="table table-hover mb-0 align-middle">
                 <thead class="table-light">
                 <tr>
-                    <th style="width: 22%;">変更日時</th>
-                    <th style="width: 48%;">詳細説明</th>
+                    <th style="width: 15%;">変更日時</th>
+                    <th style="width: 55%;">詳細説明</th>
                     <th style="width: 15%;" class="text-center">ステータス</th>
                     <th style="width: 15%;" class="text-center">期日</th>
                 </tr>
                 </thead>
                 <tbody>
                 <!-- サンプル1 -->
-                <tr th:each="history : ${historyList}">
-                    <td class="text-muted" th:text="${#temporals.format(history.updatedAt, 'yyyy/MM/dd HH:mm:ss')}">
+                <tr>
+                    <td class="text-muted">
                         2026/08/30 14:00:00
                     </td>
-                    <td th:text="${history.detail}">
+                    <td>
                         仕様書に基づき画面設計書およびデータディクショナリの項目定義を作成する。
                     </td>
                     <td class="text-center">
-                        <span class="badge bg-warning text-dark" th:text="${history.status}">対応中</span>
+                        <span class="badge bg-warning text-dark">対応中</span>
                     </td>
-                    <td class="text-center fw-bold" th:text="${#temporals.format(history.dueDate, 'yyyy/MM/dd')}">
+                    <td class="text-center fw-bold">
                         2026/09/15
                     </td>
                 </tr>
